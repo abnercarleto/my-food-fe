@@ -24,6 +24,9 @@ export class DishService {
   }
 
   create(dish: Dish): Promise<Dish> {
+    console.log(dish);
+    console.log(JSON.stringify(dish));
+    
     return this.http.post(this.dishUrl, JSON.stringify(dish), {headers: this.headers})
       .toPromise()
       .then(response => response.json() as Dish);
@@ -44,7 +47,8 @@ export class DishService {
   }
 
   get(id: Number): Promise<Dish> {
-    return this.http.get(this.dishUrl + '/' + id)
+    const url = id ? (this.dishUrl + '/' + id) : this.dishUrl;
+    return this.http.get(url)
       .toPromise()
       .then(response => response.json() as Dish);
   }

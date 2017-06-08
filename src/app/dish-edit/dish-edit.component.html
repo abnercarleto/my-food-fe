@@ -1,0 +1,37 @@
+<h3>Cadastro de Prato</h3>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <legend>Dados</legend>
+
+    <div class="form-group">
+      <label for="restaurant">Restaurante</label>
+      <select class="form-control" id="restaurant" [(ngModel)]="dish.restaurant_id">
+        <option *ngFor="let restaurant of restaurants" value="{{restaurant.id}}">{{restaurant.name}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="dish.name">
+    </div>
+
+    <div class="form-group">
+      <label for="price">Preço</label>
+      <input type="text" class="form-control" id="price" [(ngModel)]="dish.price">
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-danger" (click)="cancelClick()">
+          <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+          Cancelar
+        </button>
+        <button class="btn btn-success" (click)="saveClick()">
+          <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+          Salvar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

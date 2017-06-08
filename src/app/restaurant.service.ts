@@ -43,7 +43,8 @@ export class RestaurantService {
   }
 
   get(id: Number): Promise<Restaurant> {
-    return this.http.get(this.restaurantUrl + '/' + id)
+    const url = id ? (this.restaurantUrl + '/' + id) : this.restaurantUrl;
+    return this.http.get(url)
       .toPromise()
       .then(response => response.json() as Restaurant);
   }

@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { RestaurantEditComponent } from './restaurant-edit/restaurant-edit.component';
 import { DishListComponent } from './dish-list/dish-list.component';
+import { DishEditComponent } from './dish-edit/dish-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RestaurantListComponent,
     RestaurantEditComponent,
-    DishListComponent
+    DishListComponent,
+    DishEditComponent
   ],
   imports: [
     BrowserModule,
