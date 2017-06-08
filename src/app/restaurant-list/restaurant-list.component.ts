@@ -30,4 +30,10 @@ export class RestaurantListComponent implements OnInit {
     this.getList();
   }
 
+  removeClick(restaurant: Restaurant): void {
+    this.restaurantService
+      .remove(restaurant)
+      .then(() => this.getList());
+  }
+
 }
