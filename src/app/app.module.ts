@@ -5,16 +5,19 @@ import { HttpModule }    from '@angular/http';
 import { AppRoutingModule }   from './app-routing.module';
 
 import { RestaurantService } from './restaurant.service';
+import { DishService } from './dish.service';
 
 import { AppComponent } from './app.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { RestaurantEditComponent } from './restaurant-edit/restaurant-edit.component';
+import { DishListComponent } from './dish-list/dish-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RestaurantListComponent,
-    RestaurantEditComponent
+    RestaurantEditComponent,
+    DishListComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,10 @@ import { RestaurantEditComponent } from './restaurant-edit/restaurant-edit.compo
     HttpModule,
     AppRoutingModule
   ],
-  providers: [RestaurantService],
+  providers: [
+    RestaurantService,
+    DishService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

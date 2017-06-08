@@ -1,0 +1,34 @@
+<h3>Pratos</h3>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Restaurante</th>
+          <th>Prato</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dish of dishes">
+          <td>
+            <button class="btn btn-link" (click)="removeClick(dish)">
+              <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-link" (click)="editClick(dish)">
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            </button>
+          </td>
+          <td>{{dish.restaurant.name}}</td>
+          <td>{{dish.name}}</td>
+          <td>{{dish.price}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
