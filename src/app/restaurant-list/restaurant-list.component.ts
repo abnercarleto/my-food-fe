@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router }   from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
 import { Restaurant } from '../restaurant';
 
@@ -13,6 +14,7 @@ export class RestaurantListComponent implements OnInit {
   restaurants: Restaurant[];
 
   constructor(
+    private router: Router,
     private restaurantService: RestaurantService
   ) { }
 
@@ -28,6 +30,14 @@ export class RestaurantListComponent implements OnInit {
 
   searchClick(): void {
     this.getList();
+  }
+
+  newClick(): void {
+    this.router.navigate(['/restaurants/new']);
+  }
+
+  editClick(restaurant: Restaurant): void {
+    this.router.navigate(['/restaurants', restaurant.id]);
   }
 
   removeClick(restaurant: Restaurant): void {

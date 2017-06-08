@@ -18,11 +18,34 @@ export class RestaurantService {
       .then(response => response.json() as Restaurant[]);
   }
 
+  saveOrUpdate(restaurant: Restaurant): Promise<Restaurant> {
+    return restaurant.id ? this.update(restaurant) : this.create(restaurant);
+  }
+
+  create(restaurant: Restaurant): Promise<Restaurant> {
+    return this.http.post(this.restaurantUrl, JSON.stringify(restaurant), {headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Restaurant);
+  }
+
+  update(restaurant: Restaurant): Promise<Restaurant> {
+    const updateUrl = this.restaurantUrl + '/' + restaurant.id;
+    return this.http.patch(updateUrl, JSON.stringify(restaurant), {headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Restaurant);
+  }
+
   remove(restaurant: Restaurant): Promise<Restaurant> {
     const removeUrl = this.restaurantUrl + '/' + restaurant.id;
     return this.http.delete(removeUrl, {headers: this.headers})
       .toPromise()
       .then(() => null);
+  }
+
+  get(id: Number): Promise<Restaurant> {
+    return this.http.get(this.restaurantUrl + '/' + id)
+      .toPromise()
+      .then(response => response.json() as Restaurant);
   }
 
 }

@@ -8,11 +8,13 @@ import { RestaurantService } from './restaurant.service';
 
 import { AppComponent } from './app.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+import { RestaurantEditComponent } from './restaurant-edit/restaurant-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RestaurantListComponent
+    RestaurantListComponent,
+    RestaurantEditComponent
   ],
   imports: [
     BrowserModule,
