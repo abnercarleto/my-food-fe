@@ -4,11 +4,15 @@ import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 import { HttpModule }    from '@angular/http';
 import { AppRoutingModule }   from './app-routing.module';
 
+import { RestaurantService } from './restaurant.service';
+
 import { AppComponent } from './app.component';
+import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RestaurantListComponent
   ],
   imports: [
     BrowserModule,
@@ -16,7 +20,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [RestaurantService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
